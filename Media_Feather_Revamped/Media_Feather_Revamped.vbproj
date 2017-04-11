@@ -78,40 +78,40 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="customContainers.vb">
+    <Compile Include="base.vb" />
+    <Compile Include="cf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="controlbar.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="custom\customContainers.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="custom\consts.vb" />
-    <Compile Include="custom\cshadow.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="custom\cwindow.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Custom_Buttons.vb">
+    <Compile Include="custom\Custom_Buttons.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Custom_Checkbox_Radiobutton.vb">
+    <Compile Include="custom\Custom_Checkbox_Radiobutton.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Custom_Progresses.vb">
+    <Compile Include="custom\Custom_Progresses.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Custom_Texts.vb">
+    <Compile Include="custom\Custom_Texts.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Custom_TrackBar.vb">
+    <Compile Include="custom\Custom_TrackBar.vb">
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="custom\helpers.vb" />
     <Compile Include="custom\interpolation.vb" />
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -134,8 +134,8 @@
     <Compile Include="SongManager.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

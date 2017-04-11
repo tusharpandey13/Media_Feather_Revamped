@@ -180,18 +180,6 @@ Class custom_Material_Button
     Dim iso! = 0
 
 
-    'Private m_myProperty3 As String
-    ''this property uses our custom UITypeEditor: myFormPropertyEditor
-    '<EditorAttribute(GetType(myFormPropertyEditor), GetType(System.Drawing.Design.UITypeEditor))>
-    'Public Property myProperty3() As String
-    '    Get
-    '        Return m_myProperty3
-    '    End Get
-    '    Set(ByVal value As String)
-    '        m_myProperty3 = value
-    '    End Set
-    'End Property
-
     Private fc As Color = col(100, 0) : <System.ComponentModel.Category("Appearance")> Public Property FloodColor As Color
         Get
             Return fc

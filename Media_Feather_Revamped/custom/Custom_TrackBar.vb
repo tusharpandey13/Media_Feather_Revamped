@@ -77,7 +77,7 @@ Imports System.Drawing.Imaging
         calc()
         With G
 
-            .Clear(Parent.BackColor)
+            .Clear(Color.Fuchsia)
             .SmoothingMode = SmoothingMode.HighQuality
             .InterpolationMode = InterpolationMode.HighQualityBicubic
             .CompositingQuality = 2

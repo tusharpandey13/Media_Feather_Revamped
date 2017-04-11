@@ -414,3 +414,57 @@ Module Helpers
 #End Region
 
 End Module
+
+'below by blackcap
+Friend Class DM
+
+    Public Shared Function CreateRoundRectangle(ByVal rectangle As Rectangle, ByVal radius As Integer, Optional ByVal TopLeft As Boolean = True, Optional ByVal TopRigth As Boolean = True, Optional ByVal BottomRigth As Boolean = True, Optional ByVal BottomLeft As Boolean = True) As GraphicsPath
+        Dim path As New GraphicsPath()
+        Dim l As Integer = rectangle.Left
+        Dim t As Integer = rectangle.Top
+        Dim w As Integer = rectangle.Width
+        Dim h As Integer = rectangle.Height
+        Dim d As Integer = radius << 1
+
+        If radius <= 0 Then
+            path.AddRectangle(rectangle)
+            Return path
+        End If
+
+        If TopLeft Then
+            path.AddArc(l, t, d, d, 180, 90)
+            If TopRigth Then path.AddLine(l + radius, t, l + w - radius, t) Else path.AddLine(l + radius, t, l + w, t)
+        Else
+            If TopRigth Then path.AddLine(l, t, l + w - radius, t) Else path.AddLine(l, t, l + w, t)
+        End If
+
+        If TopRigth Then
+            path.AddArc(l + w - d, t, d, d, 270, 90)
+            If BottomRigth Then path.AddLine(l + w, t + radius, l + w, t + h - radius) Else path.AddLine(l + w, t + radius, l + w, t + h)
+        Else
+            If BottomRigth Then path.AddLine(l + w, t, l + w, t + h - radius) Else path.AddLine(l + w, t, l + w, t + h)
+        End If
+
+        If BottomRigth Then
+            path.AddArc(l + w - d, t + h - d, d, d, 0, 90)
+            If BottomLeft Then path.AddLine(l + w - radius, t + h, l + radius, t + h) Else path.AddLine(l + w - radius, t + h, l, t + h)
+        Else
+            If BottomLeft Then path.AddLine(l + w, t + h, l + radius, t + h) Else path.AddLine(l + w, t + h, l, t + h)
+        End If
+
+        If BottomLeft Then
+            path.AddArc(l, t + h - d, d, d, 90, 90)
+            If TopLeft Then path.AddLine(l, t + h - radius, l, t + radius) Else path.AddLine(l, t + h - radius, l, t)
+        Else
+            If TopLeft Then path.AddLine(l, t + h, l, t + radius) Else path.AddLine(l, t + h, l, t)
+        End If
+
+        path.CloseFigure()
+        Return path
+    End Function
+    Public Shared Function CreateRoundRectangle(x As Integer, y As Integer, w As Integer, h As Integer, radius As Integer, Optional ByVal TopLeft As Boolean = True, Optional ByVal TopRigth As Boolean = True, Optional ByVal BottomRigth As Boolean = True, Optional ByVal BottomLeft As Boolean = True) As GraphicsPath
+        Return CreateRoundRectangle(New Rectangle(x, y, w, h), radius, TopLeft, TopRigth, BottomRigth, BottomLeft)
+    End Function
+
+End Class
+'above by blackcap

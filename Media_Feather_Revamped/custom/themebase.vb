@@ -1,7 +1,6 @@
 ﻿#Region "Imports"
 Imports System.Drawing.Drawing2D
 Imports System.ComponentModel
-Imports WindowsApplication3
 #End Region
 
 

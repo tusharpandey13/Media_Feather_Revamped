@@ -35,7 +35,7 @@ Module timer
             hasTimerStarted = 1
         End If
     End Sub
-    Private Sub stopTimer()
+    Public Sub stopTimer()
         If hasTimerStarted = 0 Then Return
         tmr.Stop()
         hasTimerStarted = 0
@@ -61,7 +61,6 @@ Module timer
         Next
         T += 1
     End Sub
-
 End Module
 
 
@@ -298,7 +297,11 @@ Namespace Multimedia
         Protected Overrides Sub Finalize()
             If IsRunning Then
                 ' Stop and destroy timer.
-                timeKillEvent(timerID)
+                Try
+                    timeKillEvent(timerID)
+                Catch ex As Exception
+
+                End Try
             End If
         End Sub
 
